@@ -1,0 +1,28 @@
+<p>dashboard works!</p>
+<div class="container">
+    <h1>Todo Dashboard</h1>
+  
+    <!-- Form to Add a New Todo -->
+    <div class="todo-form">
+      <input placeholder="Enter todo description" />
+      <label>
+        <input type="checkbox"/> Completed
+      </label>
+      <button (click)="addTodo()">Add Todo</button>
+    </div>
+  
+    <!-- List of Todos -->
+    <div class="todo-list">
+      <h2>Todo List</h2>
+      <ul>
+        <li *ngFor="let todo of todos" class="todo-item">
+          <div>
+            <input type="checkbox"  (change)="toggleTodoCompletion(todo)" />
+            <span [class.completed]="todo.completed">{{ todo.description }}</span>
+          </div>
+          <button (click)="deleteTodo(todo._id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

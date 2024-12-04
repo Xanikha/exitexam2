@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exitexamfsd</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  
+
+    </style>
+</head>
+
+<body align="center" bgcolor="white" >
+  
+  
+
+  
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>To-Do List</title>
+      <style>
+         body {
+            background-image: url('4K.jpg');
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            background-position: cover; 
+        }
+          body {
+              font-family: oblique;
+              margin: 20px;
+              color:black;
+          }
+          .todo-list {
+              list-style-type: none;
+              padding: 0;
+          }
+          .todo-item {
+              display: flex;
+              align-items: center;
+              margin: 10px 0;
+          }
+          .todo-item input[type="checkbox"] {
+              margin-right: 10px;
+          }
+          .todo-item button {
+              margin-left: 10px;
+              padding: 6px 12px;
+              background-color: #f44336;
+              color: white;
+              border: none;
+              cursor: pointer;
+          }
+          .todo-item button:hover {
+              background-color: #48ead5;
+          }
+          input[type="text"] {
+              padding: 5px;
+              margin-right: 10px;
+              width: 300px;
+          }
+          button {
+              padding: 6px 12px;
+              background-color: #1b881e;
+              color: white;
+              border: none;
+              cursor: pointer;
+          }
+          button:hover {
+              background-color: #1b881e;
+          }
+      </style>
+  </head>
+  <body aline="middle">
+  
+      <h1>To-Do List</h1>
+      <p> </p>
+  
+      <!-- Input field and button to add new tasks -->
+      <input type="text" id="taskInput" placeholder="Enter a new task" />
+      <button onclick="addTask()">Add Task</button>
+  
+      <ul class="todo-list" id="todoList">
+          <!-- New tasks will be added here -->
+      </ul>
+  
+      <script>
+          // Function to add a new task to the list
+          function addTask() {
+              // Get the task input value
+              var taskValue = document.getElementById("taskInput").value;
+  
+              // Check if the input is not empty
+              if (taskValue.trim() !== "") {
+                  // Create a new list item
+                  var li = document.createElement("li");
+                  li.classList.add("todo-item");
+  
+                  // Create the checkbox for the task
+                  var checkbox = document.createElement("input");
+                  checkbox.type = "checkbox";
+  
+                  // Create the label for the task
+                  var label = document.createElement("label");
+                  label.textContent = taskValue;
+  
+                  // Create the delete button for the task
+                  var deleteButton = document.createElement("button");
+                  deleteButton.textContent = "Delete";
+                  deleteButton.onclick = function() {
+                      li.remove();  // Remove the task item from the list
+                  };
+  
+                  // Append checkbox, label, and delete button to the list item
+                  li.appendChild(checkbox);
+                  li.appendChild(label);
+                  li.appendChild(deleteButton);
+  
+                  // Append the new list item to the to-do list
+                  document.getElementById("todoList").appendChild(li);
+  
+                  // Clear the input field after adding the task
+                  document.getElementById("taskInput").value = "";
+              } else {
+                  // Alert the user if the input is empty
+                  alert("Please enter a task.");
+              }
+          }
+
+      </script>
+      <input type="text" id="taskInput" placeholder="Enter a new task description" />
+      <select id="statusSelect">
+          <option value="ongoing">Ongoing</option>
+          <option value="completed">Completed</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+
+    
+  
+  
+  
+  
+  
+
+  <app-root></app-root>
+</body>
+</html>
